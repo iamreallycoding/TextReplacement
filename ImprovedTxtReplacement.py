@@ -57,17 +57,17 @@ class TextFile:
     def replace_word(self, word, replacement):
         index = [i for i, x in enumerate(self.__words) if word in x]
         for i in index:
-            self.__words[i] = replacement
+            self.__words[i] = self.__words[i].replace(word, replacement)
         self.__write_document_word(self.__words)
 
     def add_word_before(self, word, addition):
         index = [i for i, x in enumerate(self.__words) if word in x]
         for i in index:
-            self.__words[i] = f"{addition} {word}"
+            self.__words[i] = self.__words[i].replace(word, f"{addition} {word}")
         self.__write_document_word(self.__words)
 
     def add_word_after(self, word, addition):
         index = [i for i, x in enumerate(self.__words) if word in x]
         for i in index:
-            self.__words[i] = f"{word} {addition}"
+            self.__words[i] = self.__words[i].replace(word, f"{word} {addition}")
         self.__write_document_word(self.__words)
