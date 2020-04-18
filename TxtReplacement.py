@@ -24,8 +24,8 @@ class TextFile:
 		f.close()
 		self.__update()
 
-	def replace_line_whole(self, string, replacement):
-		index = [i for i, x in enumerate(self.__lines) if x == string]
+	def replace_line_whole(self, line, replacement):
+		index = [i for i, x in enumerate(self.__lines) if x == line]
 		for i in index:
 			self.index_replace_line(i, replacement)
 		self.__write_document_line(self.__lines)
@@ -36,14 +36,14 @@ class TextFile:
 			self.index_replace_line(i, replacement)
 		self.__write_document_line(self.__lines)
 
-	def add_line_above(self, sentence, addition):
-		index = [i for i, x in enumerate(self.__lines) if x == sentence]
+	def add_line_before(self, line, addition):
+		index = [i for i, x in enumerate(self.__lines) if x == line]
 		for i in index:
 			self.__lines.insert(i, addition)
 		self.__write_document_line(self.__lines)
 
-	def add_line_below(self, sentence, addition):
-		index = [i for i, x in enumerate(self.__lines) if x == sentence]
+	def add_line_after(self, line, addition):
+		index = [i for i, x in enumerate(self.__lines) if x == line]
 		for i in index:
 			self.__lines.insert((i+1), addition)
 		self.__write_document_line(self.__lines)
